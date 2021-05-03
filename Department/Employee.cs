@@ -28,43 +28,77 @@ namespace Departments
         public List<Employee> emp1 = new List<Employee>();
         public void InputName()
         {
+            int count = 0;
             Console.WriteLine("\n\nВведіть номер договору працівника");
             contract1 = int.Parse(Console.ReadLine());
-            if(emp1.)
             
-                foreach ( var contract in emp1)
+                foreach ( Employee emp in emp1)
                 {
-                  if ((int)this.contract == contract1)
-                   {
-                    //Console.WriteLine("\n\nВведіть ім'я працівника");
-                    //string name = Console.ReadLine();
-                    //Console.WriteLine("Введіть прізвище працівника");
-                    //string surname = Console.ReadLine();
-                    //this.name = name;
-                    //this.surname = surname;
-                    Console.WriteLine(contract);
-                   }
+                if (emp.contract == contract1)
+                {
+                    Console.WriteLine("\n\nВведіть ім'я працівника");
+                    string name = Console.ReadLine();
+                    Console.WriteLine("Введіть прізвище працівника");
+                    string surname = Console.ReadLine();
+                    Console.WriteLine("Введіть посаду працівника");
+                    string position = Console.ReadLine();
+                    emp.name = name;
+                    emp.surname = surname;
+                    emp.position = position;
+                    count++;
                 }
-            
+                
+                }
+            if (count == 0) { Console.WriteLine("\nНе знайдено працівника з таким номером договору"); }
+
 
 
         }
         public void InputSalary()
         {
-            Console.WriteLine("\n\nВведіть розмір заробітної плати працівника");
-            int salary = int.Parse(Console.ReadLine());
+            int count = 0;
+            Console.WriteLine("\n\nВведіть номер договору працівника");
+            contract1 = int.Parse(Console.ReadLine());
+
+            foreach (Employee emp in emp1)
+            {
+                if (emp.contract == contract1)
+                {
+                    Console.WriteLine("Введіть суму заробітної плати працівника");
+                    salary1 = int.Parse(Console.ReadLine());   
+                        emp.salary = salary1;
+                    count++;
+                }
+                
+            }
+            if (count == 0) { Console.WriteLine("\nНе знайдено працівника з таким номером договору"); }
+
         }
-        public void AddSalary(ushort add)
+        public void AddSalary()
         {
-            Console.WriteLine("Введіть суму, на яку потрібно збільшити заробітну плату працівника");
-            salary1 = int.Parse(Console.ReadLine());
-            new_salary = salary + salary1;
-            this.salary = new_salary;
+            int count = 0;
+            Console.WriteLine("\n\nВведіть номер договору працівника");
+            contract1 = int.Parse(Console.ReadLine());
+
+            foreach (Employee emp in emp1)
+            {
+                if (emp.contract == contract1)
+                {
+                    Console.WriteLine("Введіть суму, на яку потрібно збільшити заробітну плату працівника");
+                    salary1 = int.Parse(Console.ReadLine());
+                        new_salary = emp.salary + salary1;
+                        emp.salary = new_salary;
+                    count++;
+                }
+                
+            }
+            if (count == 0) { Console.WriteLine("\nНе знайдено працівника з таким номером договору"); }
+
         }
 
         public override string ToString()
         {
-            return $"\nІм'я: {name} \nПрізвище: {surname} \nДоговір {this.contract} \nЗаробітна плата: {this.salary}";
+            return $"\nІм'я: {name} \nПрізвище: {surname} \nДоговір {this.contract} \nЗаробітна плата: {this.salary} \nПосада: {this.position}";
 
         }
 

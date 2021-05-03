@@ -17,11 +17,11 @@ namespace Departments
         {
             for (; ; )
             {
-                Console.WriteLine("1. Добавити працівника");
+                Console.WriteLine("\n\n1. Добавити працівника");
                 Console.WriteLine("2. Показати всіх працівників");
                 Console.WriteLine("3. Змінити ім'я, прізвище та посаду");
-                Console.WriteLine("4. Збільшити розмір заробітної плати");
-                Console.WriteLine("0. Вихід");
+                Console.WriteLine("4. Ввести розмір заробітної плати");
+                Console.WriteLine("5. Збільшити розмір заробітної плати");
                 int ch = int.Parse(Console.ReadLine());
                 switch (ch)
                 {
@@ -41,6 +41,17 @@ namespace Departments
                             emp.InputName();
                             break;
                         }
+                    case 4:
+                        {
+                            emp.InputSalary();
+                            break;
+                        }
+                    case 5:
+                        {
+                            emp.AddSalary();
+                            break;
+                        }
+
                 }
             }
 
